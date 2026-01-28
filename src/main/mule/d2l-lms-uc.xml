@@ -21,6 +21,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:updateuserattributes doc:name="User Attributes - Update user attributes" doc:id="9980013d-16a2-476a-b93a-4720335169db" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]" User_Attributes_-_Update_user_attributes--body="#[payload]"/>
     </flow>
     <flow name="put:\d2l\api\lp\(apiVersion)\courses\(orgUnitId):application\json:d2l-rest-lms-config">
     <http:listener doc:name="Listener" doc:id="27300681-ed12-4a9d-ba03-e3978080f202" path="/lp/{apiVersion}/courses/{orgUnitId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
@@ -35,6 +36,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:updatecourseoffering doc:name="Course Offering - Update course offering" doc:id="564b9435-501e-49a0-b6df-36bfd4f830cd" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]" Course_Offering_-_Update_course_offering--body="#[payload]"/>
     </flow>
     <flow name="put:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):application\json:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="6653477a-ba20-4a95-9476-22e18d88716f" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
@@ -49,6 +51,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:updatecoursetemplate doc:name="Course Template -Update course template" doc:id="2f0ce413-c527-4e56-acd8-e511a359e78f" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]" Course_Template_-Update_course_template--body="#[payload]"/>
     </flow>
     <flow name="put:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId):application\json:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="f312c8c9-0cdc-4675-962f-5968e0b40d9f" path="/lp/{apiVersion}/orgstructure/{orgUnitId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
@@ -62,6 +65,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:updateorgunit doc:name="Orgunit - Update orgunit" doc:id="17fcb81c-01ee-4f85-bc6a-6d31ebafaca7" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]" Orgunit_-_Update_orgunit--body="#[payload]"/>
     </flow>
     <flow name="put:\d2l\api\lp\(apiVersion)\users\(userId):application\json:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="a9f3d68f-188c-45fd-99d5-8d89e3f448c6" path="/lp/{apiVersion}/users/{userId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
@@ -75,6 +79,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:updateuser doc:name="User - Update user" doc:id="269d93bb-e788-4240-92d2-a1fd95c71994" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]" User_-_Update_user--body="#[payload]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\attributes\users\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="040e2685-82f5-41df-beef-84d77da14193" path="/lp/{apiVersion}/attributes/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -88,6 +93,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:deleteuserattributes doc:name="User Attributes - Delete user attributes" doc:id="1ecb0c15-79ab-4daf-9db2-eca13745235d" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\courses\(orgUnitId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="e132d8eb-8e92-4876-a5b2-7390798b5ed0" path="/lp/{apiVersion}/courses/{orgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -101,6 +107,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:delete-course-offering doc:name="Course Offering - Delete Course Offering" doc:id="0f9e5cca-4d47-41ab-b5ab-08af391b1a36" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):d2l-rest-lms-config">
        <http:listener doc:name="Listener" doc:id="f3f49ea1-bc73-4c7b-abcf-1455b4ccfb91" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -114,6 +121,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:deletecoursetemplate doc:name="Course Template - Delete course template" doc:id="c63247f8-75f1-40d3-acc7-42d97a906b97" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="98bc5321-48a0-4436-a8f7-0b40be8da29d" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -128,6 +136,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:deleteenrollmentbyorgunit doc:name="Enrollment - Delete enrollment by orgunit" doc:id="57c33eec-a2ec-4851-bad0-162eb2fc96f8" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\children\(childOrgUnitId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="d9ecb963-6a40-4525-bc22-e32f8e6c226b" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/children/{childOrgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -142,6 +151,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="childOrgUnitId">attributes.uriParams.'childOrgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:deleteorgunitchildrelationship doc:name="Orgunit - Delete orgunit child relationship" doc:id="4f5bbac7-99f8-4cc2-8b44-a4c4f983f920" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" childOrgUnitId="#[vars.childOrgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\parents\(parentOrgUnitId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="8c6ab93c-8618-4be8-84c5-751fcc434b37" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/parents/{parentOrgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -156,6 +166,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="parentOrgUnitId">attributes.uriParams.'parentOrgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:deleteorgunitparentrelationship doc:name="Orgunit - Delete orgunit parent relationship" doc:id="f7df5de7-31e8-4cc0-9346-f397c4750d20" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" parentOrgUnitId="#[vars.parentOrgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\users\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="53b43bb8-c0fe-4176-84b4-2dd8def6f220" path="/lp/{apiVersion}/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -169,6 +180,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:delete-user doc:name="User - Delete User" doc:id="9b95c045-5f29-4cfe-b203-7175637ed8ff" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\grades\values\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="ed228968-cb88-4c79-8eef-9b666ba8c917" path="/le/{apiVersion}/grades/values/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -182,6 +194,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getusersgrades doc:name="Grades - Get user's grades" doc:id="74f5e20a-e8b7-4090-bd96-1966cb40c080" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
         
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\classlist\:d2l-rest-lms-config">
@@ -196,6 +209,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getclasslistbyorgunit doc:name="Enrollment - Get classlist by orgunit" doc:id="0a5d7345-9191-4838-a97f-2d32d28f6ee9" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\categories\:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="a82fceef-6624-49b3-b0e8-ab7d5a0f8e08" path="/le/{apiVersion}/{orgUnitId}/grades/categories/" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -209,6 +223,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getassignmentgroups doc:name="Assignment Groups - Get assignment groups" doc:id="49c0f542-2d95-4f4c-9b6d-063f44471dbd" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\courseCompletion\:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="2a5a4ab1-efe0-4fcf-b5e6-95aa27286e94" path="/le{apiVersion}/{orgUnitId}/grades/courseCompletion/" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -222,6 +237,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getcoursecompletions doc:name="Grades - Get course completions" doc:id="476c8422-6309-4df3-9c7c-95a56cfee79d" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\final\values\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="9e474f70-ed1f-45e9-8982-f3b8734645d8" path="/le/{apiVersion}/{orgUnitId}/grades/final/values/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -236,6 +252,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getusersfinalgrade doc:name="Grades - Get user's final grade" doc:id="76c40f64-26f1-4deb-baa5-2240286b8a0c" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\(gradeObjectId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="a2dc4b6d-cce4-4f06-9f4e-6ac5dfb77ca9" path="/d2l/api/le/{apiVersion}/{orgUnitId}/grades/{gradeObjectId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -250,6 +267,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="gradeObjectId">attributes.uriParams.'gradeObjectId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getgradeobject doc:name="Grades - Get grade object" doc:id="9da7de8e-f153-4d87-8292-6931f450dc6d" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" gradeObjectId="#[vars.gradeObjectId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\(gradeObjectId)\values\:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="a314874c-13c5-49a2-a794-6dfb22570c85" path="/le/{apiVersion}/{orgUnitId}/grades/{gradeObjectId}/values/" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -265,6 +283,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="gradeObjectId">attributes.uriParams.'gradeObjectId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getusersgradesbygradeobject doc:name="Grades - Get users' grades by grade object" doc:id="6a0aca96-02d5-4498-9544-c4a6560282dd" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" gradeObjectId="#[vars.gradeObjectId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\(gradeObjectId)\values\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="811cbdce-8346-4fa1-875f-f982a0ca4aec" path="/le/{apiVersion}/{orgUnitId}/grades/{gradeObjectId}/values/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -280,6 +299,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getusersgradebygradeobject doc:name="Grades - Get user's grade by gradeobject" doc:id="3337c410-3806-4fd9-ba4f-37c6ea917c55" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" gradeObjectId="#[vars.gradeObjectId]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\attributes\users\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="4cb97868-7f1b-440b-94de-2bf486758627" path="/lp{apiVersion}/attributes/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -293,6 +313,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getuserattributes doc:name="User Attributes - Get user attributes" doc:id="9480884a-fc50-4792-a093-631e4de05662" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\courses\(orgUnitId):d2l-rest-lms-config">
        <http:listener doc:name="Listener" doc:id="1ea14af4-ea37-4e88-834f-b9f7e997660c" path="/lp/{apiVersion}/courses/{orgUnitId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -306,6 +327,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getcourseoffering doc:name="Course Offering - Get course offering" doc:id="ed72ac2a-3561-4024-acf7-c13844443fdb" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="fde9fcf4-1580-4ea0-9f11-9209bce8ea68" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -319,6 +341,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getcoursetemplate doc:name="Course Template - Get course template" doc:id="4b10fbf9-33aa-4200-a9db-2da5e17cfcda" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\:d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="75742765-87c5-4f51-ba32-c71ede442624" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/" allowedMethods="GET" config-ref="HTTP_Listener_config">
@@ -332,6 +355,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
+		<d2l:getenrollmentsbyorgunit doc:name="Enrollment - Get enrollments by orgunit" doc:id="2d892126-85a0-4f1f-a56f-91bcbef9bc1e" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" isActive="#[isEmpty(attributes.queryParams.isActive)]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="324d9ff1-09f1-4ba6-8dce-c56e28842611" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
