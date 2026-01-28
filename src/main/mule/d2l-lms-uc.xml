@@ -302,7 +302,7 @@ output application/json --- payload default error.description]]]></http:body>
 		<d2l:getusersgradebygradeobject doc:name="Grades - Get user's grade by gradeobject" doc:id="3337c410-3806-4fd9-ba4f-37c6ea917c55" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" gradeObjectId="#[vars.gradeObjectId]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\attributes\users\(userId):d2l-rest-lms-config">
-        <http:listener doc:name="Listener" doc:id="4cb97868-7f1b-440b-94de-2bf486758627" path="/lp{apiVersion}/attributes/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+        <http:listener doc:name="Listener" doc:id="4cb97868-7f1b-440b-94de-2bf486758627" path="/lp/{apiVersion}/attributes/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
 			<http:error-response statusCode="#[vars.httpStatus default 500]">
 				<http:body ><![CDATA[#[%dw 2.0
 output application/json --- payload default error.description]]]></http:body>
