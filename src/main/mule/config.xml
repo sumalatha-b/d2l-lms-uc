@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:os="http://www.mulesoft.org/schema/mule/os"
+	xmlns:d2l="http://www.mulesoft.org/schema/connectivity/d2l"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/connectivity/d2l http://www.mulesoft.org/schema/connectivity/d2l/current/mule-d2l.xsd
+http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/current/mule-os.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="67753353-b59b-4d26-9c03-4cc6535d7d7e" >
+		<http:listener-connection host="${https.host}" port="${https.port}" protocol="HTTPS">
+			<tls:context >
+				<tls:key-store type="jks" path="Client-Keystore.jks" keyPassword="Mule12345" password="Mule12345" />
+			</tls:context>
+		</http:listener-connection>
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="7bf5ee26-22c1-441d-a154-7aff59d8f274" file="config.yaml" />
+	<configuration doc:name="Configuration" doc:id="89f554d8-199e-403a-8d86-188f59824edc" defaultErrorHandler-ref="Global-Error-Handler" />
+	<d2l:config name="D2l_config" doc:name="D2l config" doc:id="bfe74573-ccc9-4911-ab61-f6404cd8fdd3" >
+		<d2l:oauth_2_0-connection baseUri="${d2l.baseuri}">
+			<d2l:oauth-authorization-code consumerKey="cf8cfd7b-3ee0-42a5-9f1d-07796b5e8b76" consumerSecret="5v1K7MAkAm7t264IYOfJwFwXIWss7RxwZtT_swJtpzw" resourceOwnerId="Mule" />
+			<d2l:oauth-callback-config listenerConfig="HTTP_Listener_config" callbackPath="/callback" authorizePath="/authorize" externalCallbackUrl="https://d2l-lms-uc-loq25c.5sc6y6-3.usa-e2.cloudhub.io/callback" />
+			<d2l:oauth-store-config objectStore="Object_store" />
+		</d2l:oauth_2_0-connection>
+	</d2l:config>
+	<os:object-store name="Object_store" doc:name="Object store" doc:id="109b4caf-ffab-40ef-aab5-fc222f8be5d7" />
+</mule>

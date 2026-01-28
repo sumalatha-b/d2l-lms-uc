@@ -1,0 +1,14 @@
+https:
+  host: "localhost"
+  port: "8081"
+d2l:
+  token: "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlhMTQzZDc4LTZhMTYtNDgxNi1iYmJjLWVkMDJiMzRlNjg1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE3NjQ1ODc1NTEsImV4cCI6MTc2NDY1OTU1MSwiaXNzIjoiaHR0cHM6Ly9hcGkuYnJpZ2h0c3BhY2UuY29tL2F1dGgiLCJhdWQiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aC90b2tlbiIsInN1YiI6IjE3NyIsInRlbmFudGlkIjoiMWM5YjMzYjgtODYxMy00YWZkLWE2Y2ItNTllZWFiMDkwNjcyIiwiYXpwIjoiYzk4OGJjZDQtMzhjYy00OTIwLTgyMDAtMmJiOTFlZThiOTM3Iiwic2NvcGUiOiJjb3JlOio6KiByb2xlOmRldGFpbDpyZWFkIiwianRpIjoiMGJmODYwMjUtYmVmNS00ZTAxLWJiZjYtOTdlOTc1Y2Q1Y2M1In0.SuCbtzX5tEmXzrfO_LQ4FFTbE5lvyDvkx5Gyw2pz_leq6UJZCXJvXEeA-sMoMPtlI6JzQHxbBkJRyS5LmjvU6LzeFUXTXXS4KBSgw6Ss0X8MfMNsqXh3i_zjvNjl2UL3SvErW34QCO8AuGtAyfR84bl4zpqnXLQYA1eecUSkZt2z86ZEe3Q6dkXOstth3pbKk-lnjwsqx4HIrZMtQ1V3qLN5OCl_VQVJGLqI40-TyqrAMkivUd9mIbSMPoxkparAIMnlXCAsqW8yjTqZHMMZgbzdxnatfNFSiMcZLv95UzuH6_hGEfK_fS3CIi9apChRC27kcz7G_kACL9j1ii6TzA"
+  baseuri: "https://nexturn.d2l-partners.brightspace.com/d2l/api"
+  version: "1.28"
+sf:
+  #username: "aurosmit.sahoo@nexturn.comauro.edu"
+  username: "aurosmit.sahoo@nexturn.com.lms.educloud"
+  password: "Aurosmit@2001"
+  #securityToken: "mlXoqVnVqAN6ciAVNNYyGG9Xz"
+  securityToken: "wEpfQlYMXv8VvhsNwrGqlptQl"
+basePath: "/*"

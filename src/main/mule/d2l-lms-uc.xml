@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:d2l="http://www.mulesoft.org/schema/connectivity/d2l"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/connectivity/d2l http://www.mulesoft.org/schema/connectivity/d2l/current/mule-d2l.xsd">
+	<flow name="put:\d2l\api\lp\(apiVersion)\attributes\users\(userId):application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="841c5314-3dee-4720-aee1-a9819bbad6bf" path="/lp/{apiVersion}/attributes/users/{userId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener>
+		<ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="put:\d2l\api\lp\(apiVersion)\courses\(orgUnitId):application\json:d2l-rest-lms-config">
+    <http:listener doc:name="Listener" doc:id="27300681-ed12-4a9d-ba03-e3978080f202" path="/lp/{apiVersion}/courses/{orgUnitId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener>
+        <ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="put:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="6653477a-ba20-4a95-9476-22e18d88716f" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+	
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="put:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId):application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="f312c8c9-0cdc-4675-962f-5968e0b40d9f" path="/lp/{apiVersion}/orgstructure/{orgUnitId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="put:\d2l\api\lp\(apiVersion)\users\(userId):application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a9f3d68f-188c-45fd-99d5-8d89e3f448c6" path="/lp/{apiVersion}/users/{userId}" allowedMethods="PUT" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\attributes\users\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="040e2685-82f5-41df-beef-84d77da14193" path="/lp/{apiVersion}/attributes/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\courses\(orgUnitId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="e132d8eb-8e92-4876-a5b2-7390798b5ed0" path="/lp/{apiVersion}/courses/{orgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):d2l-rest-lms-config">
+       <http:listener doc:name="Listener" doc:id="f3f49ea1-bc73-4c7b-abcf-1455b4ccfb91" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener> <ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="98bc5321-48a0-4436-a8f7-0b40be8da29d" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\children\(childOrgUnitId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="d9ecb963-6a40-4525-bc22-e32f8e6c226b" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/children/{childOrgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="childOrgUnitId">attributes.uriParams.'childOrgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\parents\(parentOrgUnitId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="8c6ab93c-8618-4be8-84c5-751fcc434b37" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/parents/{parentOrgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="parentOrgUnitId">attributes.uriParams.'parentOrgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="delete:\d2l\api\lp\(apiVersion)\users\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="53b43bb8-c0fe-4176-84b4-2dd8def6f220" path="/lp/{apiVersion}/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\grades\values\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="ed228968-cb88-4c79-8eef-9b666ba8c917" path="/le/{apiVersion}/grades/values/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+        
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\classlist\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="8c07aaa0-5330-4a2f-940e-b27e75c0c69a" path="/le/{apiVersion}/{orgUnitId}/classlist/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\categories\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a82fceef-6624-49b3-b0e8-ab7d5a0f8e08" path="/le/{apiVersion}/{orgUnitId}/grades/categories/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\courseCompletion\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="2a5a4ab1-efe0-4fcf-b5e6-95aa27286e94" path="/le{apiVersion}/{orgUnitId}/grades/courseCompletion/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\final\values\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="9e474f70-ed1f-45e9-8982-f3b8734645d8" path="/le/{apiVersion}/{orgUnitId}/grades/final/values/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\(gradeObjectId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a2dc4b6d-cce4-4f06-9f4e-6ac5dfb77ca9" path="/d2l/api/le/{apiVersion}/{orgUnitId}/grades/{gradeObjectId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="gradeObjectId">attributes.uriParams.'gradeObjectId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\(gradeObjectId)\values\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a314874c-13c5-49a2-a794-6dfb22570c85" path="/le/{apiVersion}/{orgUnitId}/grades/{gradeObjectId}/values/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener>
+        <ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="gradeObjectId">attributes.uriParams.'gradeObjectId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\(gradeObjectId)\values\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="811cbdce-8346-4fa1-875f-f982a0ca4aec" path="/le/{apiVersion}/{orgUnitId}/grades/{gradeObjectId}/values/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="gradeObjectId">attributes.uriParams.'gradeObjectId'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\attributes\users\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="4cb97868-7f1b-440b-94de-2bf486758627" path="/lp{apiVersion}/attributes/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\courses\(orgUnitId):d2l-rest-lms-config">
+       <http:listener doc:name="Listener" doc:id="1ea14af4-ea37-4e88-834f-b9f7e997660c" path="/lp/{apiVersion}/courses/{orgUnitId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="fde9fcf4-1580-4ea0-9f11-9209bce8ea68" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="75742765-87c5-4f51-ba32-c71ede442624" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="324d9ff1-09f1-4ba6-8dce-c56e28842611" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\enrollments\users\(userId)\orgUnits\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="2defb2e3-b3be-4e4a-b466-921c8eedca1d" path="/lp/{apiVersion}/enrollments/users/{userId}/orgUnits/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="cf230a96-1565-49dd-a79e-022ec60a105d" path="/lp/{apiVersion}/orgstructure/{orgUnitId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\children\paged\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="5b5eeb9c-4649-444d-aca8-c42b7983052c" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/children/paged/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\roles\(roleId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="f4b47ec0-eae4-40da-beb8-7f86c00b0523" path="/lp/{apiVersion}/roles/{roleId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="roleId">attributes.uriParams.'roleId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+		<d2l:getrole doc:name="Roles - Get role" doc:id="70c02413-55b4-410a-972a-72e56abfc702" apiVersion="#[vars.apiVersion]" roleId="#[vars.roleId]" correlationId="#[correlationId]" config-ref="D2l_config"/>
+    
+</flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\users\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="e1578dc0-f085-4599-b68c-71a79ef51fad" path="/lp/{apiVersion}/users/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\users\(userId):d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="4e626350-95be-4977-9ea5-019d9a8dafd5" path="/lp/{apiVersion}/users/{userId}" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\(orgUnitId)\roles\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="6a82dde9-60db-4dc3-a6c7-22cb1a974b27" path="/lp/{apiVersion}/{orgUnitId}/roles/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\courses\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="3ea6c75b-4e21-4f6d-9512-5bbcc53ccd85" path="/lp/{apiVersion}/courses/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\coursetemplates\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="376aa56b-ac3c-474f-8a2f-feb5c537f722" path="/lp/{apiVersion}/coursetemplates/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\enrollments\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="36d24bc9-a0ca-4beb-9818-3f1a544211a3" path="/lp/{apiVersion}/enrollments/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\enrollments\batch\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="eaa69ded-94e9-4597-9f07-d6d39a246073" path="/lp/{apiVersion}/enrollments/batch/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\orgstructure\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="67952bb1-8186-4911-8972-a26f01d30d9c" path="/lp/{apiVersion}/orgstructure/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\children\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="0ee05cb0-aef0-4bb0-a510-97f392d5b8c2" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/children/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\parents\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="5427a4a3-faf2-44b4-bbd1-5ec8101e189c" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/parents/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\roles\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a925e5b8-1812-4a1b-be8b-cb33ae78e799" path="/lp/{apiVersion}/roles/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\users\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="943d26a7-afac-4cb5-8e96-76f40f163998" path="/lp/{apiVersion}/users/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\users\batch\:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a3d10818-1cab-42bb-9f23-62f3b2224b2f" path="/lp/{apiVersion}/users/batch/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\users\(userId)\password:application\json:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="4a99fd59-9c1d-477c-b40a-1ac8c6792493" path="/lp/{apiVersion}/users/{userId}/password" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\ancestors\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="1f6b2792-1946-47f4-958e-06562e3e3a98" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/ancestors/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\grades\courseCompletion\(userId)\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="bf66fb8e-0012-493d-b065-65a7708793fd" path="/le/{apiVersion}/grades/courseCompletion/{userId}/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\children\:text\plain:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="d69d086e-e9b1-40d6-abc1-737c97bae719" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/children/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\lp\(apiVersion)\roles\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="5fa9f434-5e6f-4196-8d59-ba55cdca69ea" path="/lp/{apiVersion}/roles/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+		<d2l:getroles doc:name="Roles - Get roles" doc:id="a664cee8-a106-4f67-abee-106d044ae127" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" correlationId="#[correlationId]"/>
+    
+</flow>
+    <flow name="post:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\parents\:text\plain:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="7ddf2538-626c-478d-8a1a-d1bbe1881ecd" path="/lp/{apiVersion}/orgstructure/{orgUnitId}/parents/" allowedMethods="POST" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\calendar\events\myEvents\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="a0a5a2e9-c4eb-4999-91d3-1b96f42843cf" path="/le/{apiVersion}/{orgUnitId}/calendar/events/myEvents/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener><ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    </flow>
+    <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\final\values\:d2l-rest-lms-config">
+        <http:listener doc:name="Listener" doc:id="85c362f6-8969-4112-9d6e-d8371de8a2b6" path="/le/{apiVersion}/{orgUnitId}/grades/final/values/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+			<http:error-response statusCode="#[vars.httpStatus default 500]">
+				<http:body ><![CDATA[#[%dw 2.0
+output application/json --- payload default error.description]]]></http:body>
+			</http:error-response>
+		</http:listener>
+		<ee:transform doc:name="Transform Message">
+            <ee:variables>
+                <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
+                <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+    
+</flow></mule>
+    
+	
+	
