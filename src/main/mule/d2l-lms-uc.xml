@@ -226,7 +226,7 @@ output application/json --- payload default error.description]]]></http:body>
 		<d2l:getassignmentgroups doc:name="Assignment Groups - Get assignment groups" doc:id="49c0f542-2d95-4f4c-9b6d-063f44471dbd" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\courseCompletion\:d2l-rest-lms-config">
-        <http:listener doc:name="Listener" doc:id="2a5a4ab1-efe0-4fcf-b5e6-95aa27286e94" path="/le{apiVersion}/{orgUnitId}/grades/courseCompletion/" allowedMethods="GET" config-ref="HTTP_Listener_config">
+        <http:listener doc:name="Listener" doc:id="2a5a4ab1-efe0-4fcf-b5e6-95aa27286e94" path="/le/{apiVersion}/{orgUnitId}/grades/courseCompletion/" allowedMethods="GET" config-ref="HTTP_Listener_config">
 			<http:error-response statusCode="#[vars.httpStatus default 500]">
 				<http:body ><![CDATA[#[%dw 2.0
 output application/json --- payload default error.description]]]></http:body>
@@ -430,7 +430,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="roleId">attributes.uriParams.'roleId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:getrole doc:name="Roles - Get role" doc:id="70c02413-55b4-410a-972a-72e56abfc702" apiVersion="#[vars.apiVersion]" roleId="#[vars.roleId]" correlationId="#[correlationId]" config-ref="D2l_config"/>
+		<d2l:getrole doc:name="Roles - Get role" doc:id="36011ede-6546-4cee-aa58-14717ae2f35a" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" roleId="#[vars.roleId]" correlationId="#[correlationId]"/>
     
 </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\users\:d2l-rest-lms-config">
@@ -588,7 +588,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:create-role doc:name="Roles - Create Role" doc:id="92cdacc7-43ef-4f27-8d16-a81255482e2b" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" deepCopyRoleId="#[attributes.queryParams.deepCopyRoleId]" correlationId="#[correlationId]" Roles_-_Create_Role--body="#[payload]"/>
+		<d2l:create-role doc:name="Roles - Create Role" doc:id="0b2f5dc9-4296-47a8-aadf-70ce530ce370" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" deepCopyRoleId="#[attributes.queryParams.deepCopyRoleId]" correlationId="#[correlationId]"/>
     
 </flow>
     <flow name="post:\d2l\api\lp\(apiVersion)\users\:application\json:d2l-rest-lms-config">
@@ -602,7 +602,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:create-user doc:name="User - Create User" doc:id="e32461af-18be-4deb-bd37-1ce9bf3e7797" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" correlationId="#[correlationId]" User_-_Create_User--body="#[payload]"/>
+		<d2l:create-user doc:name="User - Create User" doc:id="fc695d58-4c60-4616-8c2e-02bf96e6705c" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" correlationId="#[correlationId]"/>
     
 </flow>
     <flow name="post:\d2l\api\lp\(apiVersion)\users\batch\:application\json:d2l-rest-lms-config">
@@ -631,7 +631,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="userId">attributes.uriParams.'userId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:sendpasswordreset doc:name="User - Send password reset" doc:id="bda81d28-9594-44e3-a7cd-6d2e7629fbc8" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]" User_-_Send_password_reset--body="#[payload]"/>
+		<d2l:sendpasswordreset doc:name="User - Send password reset" doc:id="9a3a1815-6c6c-4869-912e-bbc2de1270a7" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" userId="#[vars.userId]" correlationId="#[correlationId]"/>
     
 </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\orgstructure\(orgUnitId)\ancestors\:d2l-rest-lms-config">
