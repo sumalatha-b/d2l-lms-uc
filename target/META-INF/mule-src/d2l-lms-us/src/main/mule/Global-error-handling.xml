@@ -7,7 +7,8 @@ output application/json
 			<ee:variables >
 				<ee:set-variable variableName="httpStatus" ><![CDATA[%dw 2.0
 output application/json
+
 ---
-if(error.description  == "405 Method Not Allowed") 405 else vars.httpStatus]]></ee:set-variable>
+ vars.httpStatus]]></ee:set-variable>
 			</ee:variables> 
 </ee:transform> </sub-flow> <!-- Global Error Handler: call the common subflow; no per-route set-variable --> <error-handler name="Global-Error-Handler"> <on-error-propagate enableNotifications="true" logException="true" when='error.errorType.namespace == "HTTP"'> <flow-ref name="common-error-message" doc:name="Flow Reference-HTTP"/> </on-error-propagate> <on-error-propagate enableNotifications="true" logException="true" when='error.errorType.namespace == "D2L"'> <flow-ref name="common-error-message" doc:name="Flow Reference-D2L"/> </on-error-propagate> <on-error-propagate enableNotifications="true" logException="true" when='error.errorType.namespace == "ANY"'> <flow-ref name="common-error-message" doc:name="Flow Reference-ANY"/> </on-error-propagate> </error-handler> <!-- Example in HTTP Listener: <error-response statusCode="#[vars.httpStatus]"> <body><![CDATA[#[payload]]]></body> </error-response> --> </mule>

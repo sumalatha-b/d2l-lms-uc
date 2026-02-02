@@ -18,7 +18,7 @@ http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/
 	<configuration doc:name="Configuration" doc:id="89f554d8-199e-403a-8d86-188f59824edc" defaultErrorHandler-ref="Global-Error-Handler" />
 	<d2l:config name="D2l_config" doc:name="D2l config" doc:id="bfe74573-ccc9-4911-ab61-f6404cd8fdd3" >
 		<d2l:oauth_2_0-connection baseUri="${d2l.baseuri}">
-			<d2l:oauth-authorization-code consumerKey="cf8cfd7b-3ee0-42a5-9f1d-07796b5e8b76" consumerSecret="5v1K7MAkAm7t264IYOfJwFwXIWss7RxwZtT_swJtpzw" resourceOwnerId="Mule" />
+			<d2l:oauth-authorization-code consumerKey="cf8cfd7b-3ee0-42a5-9f1d-07796b5e8b76" consumerSecret="5v1K7MAkAm7t264IYOfJwFwXIWss7RxwZtT_swJtpzw" resourceOwnerId="Mule" scopes="core:*:* grades:gradeobjects:read grades:gradevalues:read role:detail:read users:userdata:create"/>
 			<d2l:oauth-callback-config listenerConfig="HTTP_Listener_config" callbackPath="/callback" authorizePath="/authorize" externalCallbackUrl="https://d2l-lms-uc-loq25c.5sc6y6-3.usa-e2.cloudhub.io/callback" />
 			<d2l:oauth-store-config objectStore="Object_store" />
 		</d2l:oauth_2_0-connection>
