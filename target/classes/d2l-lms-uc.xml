@@ -106,6 +106,7 @@ output application/json --- payload default error.description]]]></http:body>
             </ee:variables>
         </ee:transform>
 		<!-- <d2l:delete-course-offering doc:name="Course Offering - Delete Course Offering" doc:id="0f9e5cca-4d47-41ab-b5ab-08af391b1a36" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/> -->
+		<d2l:delete-course-offering doc:name="Course Offering - Delete Course Offering" doc:id="de409f5c-5bcf-4b54-b2e1-70decc992361" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\coursetemplates\(orgUnitId):d2l-rest-lms-config">
        <http:listener doc:name="Listener" doc:id="f3f49ea1-bc73-4c7b-abcf-1455b4ccfb91" path="/lp/{apiVersion}/coursetemplates/{orgUnitId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -120,6 +121,7 @@ output application/json --- payload default error.description]]]></http:body>
             </ee:variables>
         </ee:transform>
 		<!-- <d2l:deletecoursetemplate doc:name="Course Template - Delete course template" doc:id="c63247f8-75f1-40d3-acc7-42d97a906b97" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/> -->
+		<d2l:deletecoursetemplate doc:name="Course Template - Delete course template" doc:id="ae252c12-32c2-460d-9615-bd0f7b5e4d0a" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
     </flow>
     <flow name="delete:\d2l\api\lp\(apiVersion)\enrollments\orgUnits\(orgUnitId)\users\(userId):d2l-rest-lms-config">
         <http:listener doc:name="Listener" doc:id="98bc5321-48a0-4436-a8f7-0b40be8da29d" path="/lp/{apiVersion}/enrollments/orgUnits/{orgUnitId}/users/{userId}" allowedMethods="DELETE" config-ref="HTTP_Listener_config">
@@ -442,7 +444,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:getusers doc:name="User - Get users" doc:id="f7df9318-7952-4c6c-8f49-0095999a509d" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" correlationId="#[correlationId]"/>
+		<d2l:getusers doc:name="User - Get users" doc:id="f7df9318-7952-4c6c-8f49-0095999a509d" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" correlationId="#[correlationId]" orgDefinedId='#[if (!isEmpty(attributes.queryParams.orgDefinedId)) attributes.queryParams.orgDefinedId else ""]' userName='#[if (!isEmpty(attributes.queryParams.userName)) attributes.queryParams.userName else ""]' externalEmail='#[if (!isEmpty(attributes.queryParams.externalEmail)) attributes.queryParams.externalEmail else ""]' bookmark='#[if (!isEmpty(attributes.queryParams.bookmark)) attributes.queryParams.bookmark else ""]'/>
     
 </flow>
     <flow name="get:\d2l\api\lp\(apiVersion)\users\(userId):d2l-rest-lms-config">
@@ -597,7 +599,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="apiVersion">attributes.uriParams.'apiVersion'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:create-role doc:name="Roles - Create Role" doc:id="0b2f5dc9-4296-47a8-aadf-70ce530ce370" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" deepCopyRoleId="#[if (!isEmpty(attributes.queryParams.deepCopyRoleId)) attributes.queryParams.deepCopyRoleId else !isEmpty(attributes.queryParams.deepCopyRoleId)]" correlationId="#[correlationId]"/>
+		<d2l:create-role doc:name="Roles - Create Role" doc:id="0b2f5dc9-4296-47a8-aadf-70ce530ce370" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" deepCopyRoleId="#[if (!isEmpty(attributes.queryParams.deepCopyRoleId)) attributes.queryParams.deepCopyRoleId else isEmpty(attributes.queryParams.deepCopyRoleId)]" correlationId="#[correlationId]"/>
     
 </flow>
     <flow name="post:\d2l\api\lp\(apiVersion)\users\:application\json:d2l-rest-lms-config">
@@ -698,7 +700,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:student-activity doc:name="Event - Student Activity" doc:id="0e3634a7-11a6-4d70-b62a-dfc52ab6fd4e" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" startDateTime="#[if (!isEmpty(attributes.queryParams.startDateTime)) attributes.queryParams.startDateTime else !isEmpty(attributes.queryParams.startDateTime)]" endDateTime="#[if (!isEmpty(attributes.queryParams.endDateTime)) attributes.queryParams.endDateTime else !isEmpty(attributes.queryParams.endDateTime)]" correlationId="#[correlationId]"/>
+		<d2l:student-activity doc:name="Event - Student Activity" doc:id="0e3634a7-11a6-4d70-b62a-dfc52ab6fd4e" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" startDateTime="#[if (!isEmpty(attributes.queryParams.startDateTime)) attributes.queryParams.startDateTime else isEmpty(attributes.queryParams.startDateTime)]" endDateTime="#[if (!isEmpty(attributes.queryParams.endDateTime)) attributes.queryParams.endDateTime else isEmpty(attributes.queryParams.endDateTime)]" correlationId="#[correlationId]"/>
     
 </flow>
     <flow name="get:\d2l\api\le\(apiVersion)\(orgUnitId)\grades\final\values\:d2l-rest-lms-config">
@@ -714,7 +716,7 @@ output application/json --- payload default error.description]]]></http:body>
                 <ee:set-variable variableName="orgUnitId">attributes.uriParams.'orgUnitId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<d2l:getusersfinalgrades doc:name="Grades - Get users' final grades" doc:id="1c912876-298c-49e0-98ae-90646494f706" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]"/>
+		<d2l:getusersfinalgrades doc:name="Grades - Get users' final grades" doc:id="1c912876-298c-49e0-98ae-90646494f706" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" orgUnitId="#[vars.orgUnitId]" correlationId="#[correlationId]" isGraded="#[isEmpty(attributes.queryParams.isGraded)]"/>
     
 </flow></mule>
     
