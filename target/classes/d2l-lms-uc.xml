@@ -503,15 +503,6 @@ output application/json --- payload default error.description]]]></http:body>
             </ee:variables>
         </ee:transform>
 		<d2l:createcoursetemplate doc:name="Course Template - Create course template" doc:id="aa395d6e-f7b5-4d73-958e-cfbe555191e6" config-ref="D2l_config" apiVersion="#[vars.apiVersion]" correlationId="#[correlationId]">
-			<d2l:course_template_-_create_course_template--body ><![CDATA[#[%dw 2.0
-output application/json
----
-{
-  "Name": payload.Name,
-  "Code": payload.Code,
-  "Path": payload.Path,
-  "ParentOrgUnitIds": payload.ParentOrgUnitIds
-}]]]></d2l:course_template_-_create_course_template--body>
 		</d2l:createcoursetemplate>
     
 </flow>
