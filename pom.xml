@@ -58,13 +58,7 @@
 		<dependency>
 			<groupId>1c84124b-acf1-4c20-80bf-5a1a266bfbb6</groupId>
 			<artifactId>d2l-anypoint-connector-model</artifactId>
-			<version>1.0.18-SNAPSHOT</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>1c84124b-acf1-4c20-80bf-5a1a266bfbb6</groupId>
-			<artifactId>moodle-anypoint-connector-model</artifactId>
-			<version>1.0.21-SNAPSHOT</version>
+			<version>1.0.20-SNAPSHOT</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
